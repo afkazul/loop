@@ -16,6 +16,7 @@ namespace loupe
         private Texture2D _enemyExampleSprite;
         public static Player P;
         private Enemy _e;
+        private Magic _m;
         public static ContentManager Conman;
 
         public Game1()
@@ -32,6 +33,7 @@ namespace loupe
             // Add your initialization logic here
             P = new Player();
             _e = new Enemy();
+            _m = new Magic();
             Conman = Content;
             base.Initialize();
         }
