@@ -12,7 +12,7 @@ namespace loupe
         {
             Console.WriteLine("sample text");
             _position = new Vector2(Game1.Graphics.PreferredBackBufferWidth / 2 + 50, Game1.Graphics.PreferredBackBufferHeight / 2 + 50);
-            _speed = 62f;
+            _speed = 100f;
         }
         public void Draw(SpriteBatch spriteBatch, Texture2D sprite)
         {
@@ -21,14 +21,15 @@ namespace loupe
 
         public void Move(GameTime gameTime, GraphicsDeviceManager graphics, Texture2D sprite)
         {
+            var kstate = Keyboard.GetState();
             if(_position.X > Game1.P.Position.X)
-                _position.X -= _speed;
+                _position.X -= _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             if(_position.X < Game1.P.Position.X)
-                _position.X += _speed;
+                _position.X += _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             if(_position.Y > Game1.P.Position.Y)
-                _position.Y -= _speed;
+                _position.Y -= _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             if(_position.Y < Game1.P.Position.Y)
-                _position.Y += _speed;
+                _position.Y += _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
     }
 }
