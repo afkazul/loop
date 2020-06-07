@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 namespace loupe
 {
     public class Enemy
@@ -19,9 +18,8 @@ namespace loupe
             spriteBatch.Draw(sprite, _position, null, Color.White, 0f, Vector2.Zero, 2.5f, SpriteEffects.None, 0f);
         }
 
-        public void Move(GameTime gameTime, GraphicsDeviceManager graphics, Texture2D sprite)
+        public void Move(GameTime gameTime)
         {
-            var kstate = Keyboard.GetState();
             if(_position.X > Game1.P.Position.X)
                 _position.X -= _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             if(_position.X < Game1.P.Position.X)

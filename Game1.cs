@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGame.Extended.Sprites;
 
 namespace loupe
 {
@@ -16,8 +15,8 @@ namespace loupe
         private Texture2D _enemyExampleSprite;
         public static Player P;
         private Enemy _e;
-        private Magic _m;
-        public static ContentManager Conman;
+        //private Magic _m;
+        private static ContentManager _conman;
 
         public Game1()
         {
@@ -26,6 +25,7 @@ namespace loupe
             IsMouseVisible = true;
             Graphics.PreferredBackBufferWidth = 625;
             Graphics.PreferredBackBufferHeight = 595;
+            Console.WriteLine(_conman);
         }
 
         protected override void Initialize()
@@ -33,8 +33,8 @@ namespace loupe
             // Add your initialization logic here
             P = new Player();
             _e = new Enemy();
-            _m = new Magic();
-            Conman = Content;
+            //_m = new Magic();
+            _conman = Content;
             base.Initialize();
         }
 
@@ -56,7 +56,7 @@ namespace loupe
 
             // Add your update logic here
             P.Move(gameTime, Graphics, _playerExampleSprite);
-            _e.Move(gameTime, Graphics, _enemyExampleSprite);
+            _e.Move(gameTime);
 
             base.Update(gameTime);
         }

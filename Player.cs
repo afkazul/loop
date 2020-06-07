@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Net.Mime;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGame.Extended.Sprites;
 
 namespace loupe
 {
@@ -15,7 +13,7 @@ namespace loupe
         public Player()
         {
             Console.WriteLine("sample text");
-            Position = new Vector2(Game1.Graphics.PreferredBackBufferWidth / 2, Game1.Graphics.PreferredBackBufferHeight / 2);
+            Position = new Vector2(Game1.Graphics.PreferredBackBufferWidth / 2f, Game1.Graphics.PreferredBackBufferHeight / 2f);
             _speed = 200f;
         }
 
@@ -41,13 +39,13 @@ namespace loupe
                 Position.X += _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             if(Position.X > graphics.PreferredBackBufferWidth - sprite.Width / 2)
                 Position.X = graphics.PreferredBackBufferWidth - sprite.Width / 2;    
-            else if(Position.X < sprite.Width / 2)
-                Position.X = sprite.Width / 2;
+            else if(Position.X < sprite.Width / 2f)
+                Position.X = sprite.Width / 2f;
  
             if(Position.Y > graphics.PreferredBackBufferHeight - sprite.Height / 2)
                 Position.Y = graphics.PreferredBackBufferHeight - sprite.Height / 2;
-            else if(Position.Y < sprite.Height / 2)
-                Position.Y = sprite.Height / 2;
+            else if(Position.Y < sprite.Height / 2f)
+                Position.Y = sprite.Height / 2f;
         }
     }
 }
